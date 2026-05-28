@@ -1,0 +1,15 @@
+# Build artifacts
+*.exe
+*.obj
+*.ilk
+*.pdb
+
+# Generated output
+plot.csv
+
+# IDE and workspace files
+.vscode/
+
+# OS files
+Thumbs.db
+.DS_Store
