@@ -9,7 +9,7 @@ double simulate_distance(double deg, double v0, double k){
     double x = 0;
     const double pi =  3.14159265358979323846;
     const double m = 0.057;
-    const double g = 3.2808399;//gravity in ft/s^2
+    const double g = 32.17405;//gravity in ft/s^2
     const double dt = 0.0001;
     double y = 5 * sin(deg * pi / 180.0);
     double vx = v0 * cos(deg * pi / 180.0);
@@ -60,7 +60,7 @@ void run_calc() {
     double min_error = 1e9;
     
     //the file outputs have been read and stored in the vectors, now we can use them
- for (double v1 = 16; v1 <= 30; v1 += 0.1){
+ for (double v1 = 60; v1 <= 80; v1 += 0.1){
         for (double k = 0.0005; k <= 0.001; k += 0.000001){
             
             double total_error = 0.0; 
@@ -72,7 +72,7 @@ void run_calc() {
                 total_error += current_error; // Add up errors for ALL points
                 
                 // Debug print for close matches (optional)
-/*
+
                 if (current_error < 0.4){
                     cout << "v0: " << v1 
                          << " | k: " << k 
@@ -82,7 +82,7 @@ void run_calc() {
                          << " | error: " << current_error 
                          << endl;
                 }
-*/
+
             }
             
            
@@ -109,8 +109,8 @@ void get_plot(double deg, double v0, double k){
     double x = 0;
     const double pi =  3.14159265358979323846;
     const double m = 0.057;
-    const double g = 3.2808399;//gravity in ft/s^2
-    const double dt = 0.00001;
+    const double g = 32.17405;//gravity in ft/s^2
+    const double dt = 0.000001;
     double y = 5 * sin(deg * pi / 180.0);
     double vx = v0 * cos(deg * pi / 180.0);
     double vy = v0 * sin(deg * pi / 180.0);
@@ -153,7 +153,7 @@ void calcDist(double v0, double k, double x1, double y1) {
     double x = 0;
     const double pi =  3.14159265358979323846;
     const double m = 0.057;
-    const double g = 3.2808399;//gravity in ft/s^2
+    const double g = 32.17405;//gravity in ft/s^2
     const double dt = 0.00001;
     double y = 5 * sin(deg * pi / 180.0);
     double vx = v0 * cos(deg * pi / 180.0);
@@ -196,12 +196,12 @@ void calcDist(double v0, double k, double x1, double y1) {
 
 
 int main() {
-    double k = 0.000712;
-    double v0 = 22.8;
+    double k = 0.000605;
+    double v0 = 69.1;
     
     //run_calc();
-    //cout <<simulate_distance(11, v0, k);
-    //get_plot(11, v0, k);
-    calcDist(v0, k, 50, 5);
+    //cout <<simulate_distance(45, v0, k);
+    get_plot(45, v0, k);
+    //calcDist(v0, k, 50, 5);
     return 0;
 }
